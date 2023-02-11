@@ -18,19 +18,21 @@ class Solution {
             int next = blueEdges[i][1];
             blueEdges2[cur].add(next);
         }
+
         int[] dist = new int[n];
         for(int i=0; i<n; i++) {
             dist[i] = 400;
         }
-        int[] answer = bfs(n, redEdges2, blueEdges2, dist, 0);
-        answer = bfs(n, blueEdges2, redEdges2, dist, 0);
+
+        int[] answer = bfs(n, redEdges2, blueEdges2, dist);
+        //answer = bfs(n, blueEdges2, redEdges2, dist);
         for(int i=1; i<n; i++) {
             if(dist[i] == 400) dist[i] = -1;
         }
         return answer;
     }
 
-    public int[] bfs(int n, List<Integer>[] redEdges, List<Integer>[] blueEdges, int[] dist, int baseColor) {
+    public int[] bfs(int n, List<Integer>[] redEdges, List<Integer>[] blueEdges, int[] dist) {
         boolean[][][] visited = new boolean[2][n][n];
         for(int i=0; i<2; i++) {
             for(int j=0; j<n; j++) {
@@ -41,7 +43,8 @@ class Solution {
         }
 
         Queue<int[]> q = new LinkedList<>();
-        q.add(new int[]{0, baseColor}); // 현재노드, 색(0은 레드, 1은 블루)
+        q.add(new int[]{0, 0}); // 현재노드, 색(0은 레드, 1은 블루)
+        q.add(new int[]{0, 1});
 
         int count = 0;
         while(!q.isEmpty()) {
