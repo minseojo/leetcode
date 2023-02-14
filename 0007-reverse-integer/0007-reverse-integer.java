@@ -10,7 +10,7 @@ class Solution {
         if(answer >= Integer.MAX_VALUE-1 || answer <= Integer.MIN_VALUE) return 0;
         return (int)answer;
     }
-}
+} 
 
 //  1534236469
 //  
