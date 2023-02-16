@@ -28,6 +28,6 @@ class Solution {
             System.out.println(root.val + " " + depth);
             result = Math.max(result, depth);
             if(root.right != null) depthTravel(root.right, depth+1);
-        }
+        } 
     }
 }
