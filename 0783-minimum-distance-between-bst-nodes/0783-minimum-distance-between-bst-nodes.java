@@ -14,19 +14,22 @@
  * }
  */
 class Solution {
-    TreeNode previous = null;
-    int min = Integer.MAX_VALUE;
+    TreeNode prev = null;
+    int answer = Integer.MAX_VALUE;
+
     public int minDiffInBST(TreeNode root) {
         inOrder(root);
-        return min;
+        return answer;
     }
+
     public void inOrder(TreeNode root){
         if(root == null) return;
+
         inOrder(root.left);
-        if(previous != null){
-            min = Math.min(min, root.val-previous.val);
+        if(prev != null){
+            answer = Math.min(answer, root.val-prev.val);
         }
-        previous = root;
+        prev = root;
         inOrder(root.right);
     }
 }
