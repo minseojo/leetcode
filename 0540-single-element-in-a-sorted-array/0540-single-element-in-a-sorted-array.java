@@ -1,9 +1,9 @@
 class Solution {
     public int singleNonDuplicate(int[] nums) {
-        if(nums.length == 1) return 1;
         int result=-1;
-        int l=0, r=nums.length-1, m=0;
-        while(l<=r && r< nums.length) {
+        int l=0, r=nums.length-1, m=-1;
+        
+        while(l<=r && r<nums.length) {
             m = l +(r-l)/2;
             if(m+1 >= nums.length) {
                 result = nums[m];
