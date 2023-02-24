@@ -13,12 +13,11 @@ class Solution {
         while(true) {
             int max = pq.poll();
             result = Math.min(result, max-min);
-            if(max-min >= Math.abs((max/2)-min) && max%2==0) {
-                pq.add(max/2);
-                min = Math.min(min, max/2);
-                result = Math.min(result, max-min);
-            } else break;
+            if(max%2 == 1) break;
+            pq.add(max/2);
+            min = Math.min(min, max/2);    
         }
+
         return result;
     }
 }
