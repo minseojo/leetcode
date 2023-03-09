@@ -20,8 +20,8 @@ public class Solution {
             fast = fast.next.next;
             slow = slow.next;
             if (fast == slow) {
-                while (head != fast) {
-                    fast = fast.next;
+                while (head != slow) {
+                    slow = slow.next;
                     head = head.next;
                 }
                 return head;
